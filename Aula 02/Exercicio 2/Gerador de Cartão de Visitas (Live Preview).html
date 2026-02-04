@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Gerador de Cartão de Visitas (Live Preview).css">
+    <title>Exercício 2: Gerador de Cartão de Visitas (Live Preview)</title>
+</head>
+<body>
+ </style>
+</head>
+<body>
+    <div class="form-container">
+        <h3>Personalize seu Cartão</h3>
+        <input type="text" id="inputNome" placeholder="Digite seu Nome" oninput="atualizarCartao()">
+        <input type="text" id="inputCargo" placeholder="Digite seu Cargo" oninput="atualizarCartao()">
+        
+        <label>Escolha uma Cor:</label>
+        <select id="inputCor" onchange="mudarCor()">
+            <option value="#3498db">Azul Real</option>
+            <option value="#e74c3c">Vermelho Intenso</option>
+            <option value="#2ecc71">Verde Esmeralda</option>
+            <option value="#f1c40f">Amarelo Sol</option>
+            <option value="#9b59b6">Roxo Ametista</option>
+        </select>
+    </div>
+
+    <div id="cartao">
+        <h2 id="previewNome">Seu Nome</h2>
+        <p id="previewCargo">Seu Cargo</p>
+    </div>
+    <script src="Gerador de Cartão de Visitas (Live Preview).js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+:root {
+            --card-bg: #3498db; /* Cor padrão inicial */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 50px;
+            background-color: #f0f2f5;
+        }
+
+        /* Formulário */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Cartão Estilizado */
+        #cartao {
+            width: 350px;
+            height: 200px;
+            background-color: var(--card-bg);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #cartao h2 { margin: 0; font-size: 1.8rem; }
+        #cartao p { margin: 5px 0 0; opacity: 0.9; font-style: italic; }
