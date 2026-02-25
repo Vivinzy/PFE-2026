@@ -8,24 +8,28 @@ body {
 .nome1{
     height: 600px;
     width: 800px;
-    background-color: aquamarine;
-
+    background-color: rgb(192, 187, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
 
 .nome2{
     height: 180px;
     width: 700px;
-    background-color: burlywood;
+    background-color: rgba(255, 209, 248, 0.973);
     border: 2px solid black;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center; 
 }
 
 .nome3{
     height: 180px;
     width: 700px;
-    background-color: chartreuse;
+    background-color: rgb(253, 197, 253);
     border: 2px solid black;
     display: flex;
     justify-content: space-around;
@@ -36,8 +40,8 @@ body {
 .nome4{
     height: 180px;
     width: 700px;
-    background-color: cadetblue;
-    border: 2px solid black;
+    background-color: rgb(236, 175, 255);
+    border: 2px solid rgb(0, 0, 0);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -47,6 +51,7 @@ body {
 .nome5{
     height: 80px;
     width: 90px;
-    background-color: coral;
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
+
