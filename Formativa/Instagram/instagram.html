@@ -9,68 +9,663 @@
 </head>
 <body>
 
-    <div class="main-container">
-        <nav class="sidebar">
-            <div class="logo">Instagram</div>
-            <ul class="nav-links">
-                <li><i class="fa-solid fa-house"></i> <span>Página inicial</span></li>
-                <li><i class="fa-solid fa-magnifying-glass"></i> <span>Pesquisa</span></li>
-                <li><i class="fa-regular fa-compass"></i> <span>Explorar</span></li>
-                <li><i class="fa-solid fa-clapperboard"></i> <span>Reels</span></li>
-                <li><i class="fa-regular fa-paper-plane"></i> <span>Mensagens</span></li>
-                <li><i class="fa-regular fa-heart"></i> <span>Notificações</span></li>
-                <li><i class="fa-regular fa-square-plus"></i> <span>Criar</span></li>
-            </ul>
-        </nav>
+<div class="main-container">
 
-        <main class="feed">
-            <div class="stories-container">
-                <div class="story"><div class="profile-pic"></div><span>Seu story</span></div>
-                <div class="story"><div class="profile-pic"></div><span>vivianevitoria26</span></div>
-                <div class="story"><div class="profile-pic"></div><span>user_2</span></div>
-                <div class="story"><div class="profile-pic"></div><span>user_3</span></div>
+    <!-- ── navegação ── -->
+    <nav class="sidebar">
+        <div class="logo"><i><svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="currentColor">
+      <path d="M12 2.982c2.937 0 3.285.011 4.445.064a6.087 6.087 0 0 1 2.042.379 3.408 3.408 0 0 1 1.265.823 3.408 3.408 0 0 1 .823 1.265 6.087 6.087 0 0 1 .379 2.042c.053 1.16.064 1.508.064 4.445s-.011 3.285-.064 4.445a6.087 6.087 0 0 1-.379 2.042 3.643 3.643 0 0 1-2.088 2.088 6.087 6.087 0 0 1-2.042.379c-1.16.053-1.508.064-4.445.064s-3.285-.011-4.445-.064a6.087 6.087 0 0 1-2.043-.379 3.408 3.408 0 0 1-1.264-.823 3.408 3.408 0 0 1-.823-1.265 6.087 6.087 0 0 1-.379-2.042c-.053-1.16-.064-1.508-.064-4.445s.011-3.285.064-4.445a6.087 6.087 0 0 1 .379-2.042 3.408 3.408 0 0 1 .823-1.265 3.408 3.408 0 0 1 1.265-.823 6.087 6.087 0 0 1 2.042-.379c1.16-.053 1.508-.064 4.445-.064M12 1c-2.987 0-3.362.013-4.535.066a8.074 8.074 0 0 0-2.67.511 5.392 5.392 0 0 0-1.949 1.27 5.392 5.392 0 0 0-1.269 1.948 8.074 8.074 0 0 0-.51 2.67C1.012 8.638 1 9.013 1 12s.013 3.362.066 4.535a8.074 8.074 0 0 0 .511 2.67 5.392 5.392 0 0 0 1.27 1.949 5.392 5.392 0 0 0 1.948 1.269 8.074 8.074 0 0 0 2.67.51C8.638 22.988 9.013 23 12 23s3.362-.013 4.535-.066a8.074 8.074 0 0 0 2.67-.511 5.625 5.625 0 0 0 3.218-3.218 8.074 8.074 0 0 0 .51-2.67C22.988 15.362 23 14.987 23 12s-.013-3.362-.066-4.535a8.074 8.074 0 0 0-.511-2.67 5.392 5.392 0 0 0-1.27-1.949 5.392 5.392 0 0 0-1.948-1.269 8.074 8.074 0 0 0-2.67-.51C15.362 1.012 14.987 1 12 1Zm0 5.351A5.649 5.649 0 1 0 17.649 12 5.649 5.649 0 0 0 12 6.351Zm0 9.316A3.667 3.667 0 1 1 15.667 12 3.667 3.667 0 0 1 12 15.667Zm5.872-10.859a1.32 1.32 0 1 0 1.32 1.32 1.32 1.32 0 0 0-1.32-1.32Z"></path>
+        </svg></i></div>
+
+        <ul class="nav-links">
+            <li class="active"><i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="m21.762 8.786-7-6.68a3.994 3.994 0 0 0-5.524 0l-7 6.681A4.017 4.017 0 0 0 1 11.68V19c0 2.206 1.794 4 4 4h3.005a1 1 0 0 0 1-1v-7.003a2.997 2.997 0 0 1 5.994 0V22a1 1 0 0 0 1 1H19c2.206 0 4-1.794 4-4v-7.32a4.02 4.02 0 0 0-1.238-2.894Z"></path>
+            </svg></i><span>Página inicial</span></li>
+            <!--reels-->
+            <li><i>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.935 7.468c-.063-1.36-.307-2.142-.512-2.67a5.341 5.341 0 0 0-1.27-1.95 5.345 5.345 0 0 0-1.95-1.27c-.53-.206-1.311-.45-2.672-.513C15.333 1.012 14.976 1 12 1s-3.333.012-4.532.065c-1.36.063-2.142.307-2.67.512-.77.298-1.371.69-1.95 1.27a5.36 5.36 0 0 0-1.27 1.95c-.206.53-.45 1.311-.513 2.672C1.012 8.667 1 9.024 1 12s.012 3.333.065 4.532c.063 1.36.307 2.142.512 2.67.297.77.69 1.372 1.27 1.95.58.581 1.181.974 1.95 1.27.53.206 1.311.45 2.672.513C8.667 22.988 9.024 23 12 23s3.333-.012 4.532-.065c1.36-.063 2.142-.307 2.67-.512a5.33 5.33 0 0 0 1.95-1.27 5.356 5.356 0 0 0 1.27-1.95c.206-.53.45-1.311.513-2.672.053-1.198.065-1.555.065-4.531s-.012-3.333-.065-4.532Zm-1.998 8.972c-.05 1.07-.228 1.652-.38 2.04-.197.51-.434.874-.82 1.258a3.362 3.362 0 0 1-1.258.82c-.387.151-.97.33-2.038.379-1.162.052-1.51.063-4.441.063s-3.28-.01-4.44-.063c-1.07-.05-1.652-.228-2.04-.38a3.354 3.354 0 0 1-1.258-.82 3.362 3.362 0 0 1-.82-1.258c-.151-.387-.33-.97-.379-2.038C3.011 15.28 3 14.931 3 12s.01-3.28.063-4.44c.05-1.07.228-1.652.38-2.04.197-.51.434-.875.82-1.26a3.372 3.372 0 0 1 1.258-.819c.387-.15.97-.329 2.038-.378C8.72 3.011 9.069 3 12 3s3.28.01 4.44.063c1.07.05 1.652.228 2.04.38.51.197.874.433 1.258.82.385.382.622.747.82 1.258.151.387.33.97.379 2.038C20.989 8.72 21 9.069 21 12s-.01 3.28-.063 4.44Zm-4.584-6.828-5.25-3a2.725 2.725 0 0 0-2.745.01A2.722 2.722 0 0 0 6.988 9v6c0 .992.512 1.88 1.37 2.379.432.25.906.376 1.38.376.468 0 .937-.123 1.365-.367l5.25-3c.868-.496 1.385-1.389 1.385-2.388s-.517-1.892-1.385-2.388Zm-.993 3.04-5.25 3a.74.74 0 0 1-.748-.003.74.74 0 0 1-.374-.649V9a.74.74 0 0 1 .374-.65.737.737 0 0 1 .748-.002l5.25 3c.341.196.378.521.378.652s-.037.456-.378.651Z"></path>
+    </svg> </i><span>Reels</span></li>
+    <!--enviar-->
+    <li><i>
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         width="24" 
+         height="24" 
+         viewBox="0 0 24 24" 
+         fill="none" 
+         stroke="currentColor" 
+         stroke-width="2" 
+         stroke-linejoin="round">
+      <path d="M13.973 20.046 21.77 6.928C22.8 5.195 21.55 3 19.535 3H4.466C2.138 3 .984 5.825 2.646 7.456l4.842 4.752 1.723 7.121c.548 2.266 3.571 2.721 4.762.717Z"></path></svg></i>
+  <span>Mensagem</span>
+</li>
+<!--pesquisar-->
+            <li><i>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+    <path d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z"></path>
+    <line x1="16.511" y1="16.511" x2="22" y2="22"></line></svg></i><span>Pesquisar</span></li>
+    <!--explorar-->
+            <li><i>
+    <svg aria-label="Explorar"
+         fill="currentColor"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24">
+      <polygon fill="none"
+        points="13.941 13.953 7.581 16.424 10.06 10.056 16.42 7.585 13.941 13.953"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"></polygon>
+      <polygon fill-rule="evenodd"
+        points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"></polygon>
+      <circle cx="12.001"
+        cy="12.005"
+        r="10.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"></circle>
+        </svg></i><span>Explorar</span></li>
+<!--curtidas-->
+            <li><i>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linejoin="round">
+      <path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path>
+    </svg></i><span>Curtidas</span></li>
+<!--criar-->
+            <li><i>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="currentColor">
+      <path d="M21 11h-8V3a1 1 0 1 0-2 0v8H3a1 1 0 1 0 0 2h8v8a1 1 0 1 0 2 0v-8h8a1 1 0 1 0 0-2Z"></path>
+    </svg></i><span>Criar</span></li>
+            <li><i class="fa-solid fa-user"></i> <span>Perfil</span></li>
+        </ul>
+        <ul class="nav-links nav-bottom">
+            <li><i class="fa-solid fa-bars"></i> <span>Mais</span></li>
+        </ul>
+    </nav>
+
+    <!-- ── FEED ── -->
+    <main class="feed">
+
+        <!-- storys -->
+        <div class="stories-container">
+            <div class="story">
+                <div class="story-ring no-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/vitoria.png" alt="Seu story"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fa-solid fa-plus add-icon\'></i>'">
+                    </div>
+                </div>
+                <span>Seu story</span>
             </div>
 
-            <article class="post">
-                <header class="post-header">
-                    <div class="user-info">
-                        <div class="profile-pic" style="background-image: url('https://i.pinimg.com/736x/63/2b/80/632b80cca4fbc8ba249392ee473236ea.jpg');"></div>
-                        <span class="username">vycnnz</span>
+            <div class="story">
+                <div class="story-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/viviane.jpg" alt="vivianevitoria26"
+                             onerror="this.style.display='none'">
                     </div>
+                </div>
+                <span>vivianevitoria26</span>
+            </div>
+
+            <div class="story">
+                <div class="story-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/dudis.png" alt="maa.eduardab"
+                             onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <span>maa.eduardab</span>
+            </div>
+
+            <div class="story">
+                <div class="story-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/brenda.jpg" alt="brenda_12ra"
+                             onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <span>brenda_12ra</span>
+            </div>
+
+            <div class="story">
+                <div class="story-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/mahsouzanails_.jpg" alt="mahsouzanails_"
+                             onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <span>mahsouzanails_</span>
+            </div>
+
+            <div class="story">
+                <div class="story-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/nataliecarinie.jpg" alt="nataliecarinie"
+                             onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <span>nataliecarinie</span>
+            </div>
+
+            <div class="story">
+                <div class="story-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/gucbbar.jpg" alt="gucbbar"
+                             onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <span>gucbbar</span>
+            </div>
+
+            <div class="story">
+                <div class="story-ring">
+                    <div class="story-ring-inner">
+                        <img src="fotos/fernandasoparabrasileirinhos.jpg" alt="fernandasoparabrasileirinhos"
+                             onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <span>fernandasopara...</span>
+            </div>
+        </div>
+
+        <!-- posts  -->
+        <article class="post">
+            <header class="post-header">
+                <div class="user-info">
+                    <div class="profile-pic">
+                        <img src="fotos/viviane.jpg" alt="vivianevitoria26"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="user-meta">
+                        <span class="post-username">vivianevitoria26</span>
+                    </div>
+                </div>
+                <button style="background:none;border:none;cursor:pointer;font-size:16px;color:#262626;">
                     <i class="fa-solid fa-ellipsis"></i>
-                </header>
-                <div class="post-image">
-                    <img src="https://i.pinimg.com/736x/63/2b/80/632b80cca4fbc8ba249392ee473236ea.jpg" alt="Computador">
-                </div>
-                <footer class="post-footer">
-                    <div class="post-actions">
-                        <i class="fa-regular fa-heart"></i>
-                        <i class="fa-regular fa-comment"></i>
-                        <i class="fa-regular fa-paper-plane"></i>
-                    </div>
-                    <div class="likes"><strong>1.240 curtidas</strong></div>
-                    <div class="caption">
-                        <strong>vycnnz</strong> codigos são um grande desafio, mas também uma paixão! #programação #desenvolvimento #devt
-                    </div>
-                </footer>
-            </article>
-        </main>
+                </button>
+            </header>
 
-        <aside class="suggestions">
-            <div class="current-user">
-                <div class="profile-pic-med"></div>
-                <div>
-                    <strong>vycnnz</strong>
-                    <p>vivi</p>
+            <div class="post-image">
+                <img src="https://i.pinimg.com/736x/63/2b/80/632b80cca4fbc8ba249392ee473236ea.jpg" alt="Computador">
+            </div>
+
+            <footer class="post-footer">
+                <div class="post-actions">
+                    <button class="heart-btn" title="Curtir" onclick="toggleHeart(this)">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <button title="Comentar">
+                        <i class="fa-regular fa-comment"></i>
+                    </button>
+                    <button title="Compartilhar">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                    <button class="save-btn" title="Salvar" onclick="toggleSave(this)">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
                 </div>
-                <button class="switch-btn">Mudar</button>
+                <div class="likes">1.240 curtidas</div>
+                <div class="caption">
+                    <strong class="caption-user">vivianevitoria26</strong>
+                    códigos são um grande desafio, mas também uma paixão! ✨
+                    <span style="color:#00376b;">#programação #desenvolvimento #dev</span>
+                </div>
+                <span class="post-comments-link">Ver todos os 38 comentários</span>
+                <span class="post-time">há 2 horas</span>
+                <div class="add-comment">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </footer>
+        </article>
+
+        <!-- post -->
+        <article class="post">
+            <header class="post-header">
+                <div class="user-info">
+                    <div class="profile-pic">
+                        <img src="fotos/dudis.png" alt="maa.eduardab"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="user-meta">
+                        <span class="post-username">maa.eduardab</span>
+                        <span class="post-location">Brasil</span>
+                    </div>
+                </div>
+                <button style="background:none;border:none;cursor:pointer;font-size:16px;color:#262626;">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </button>
+            </header>
+
+            <div class="post-image">
+                <img src="fotos/praia.jpg" alt="Praia"
+                     onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600'">
             </div>
-            <div class="sug-header">
-                <span>Sugestões para você</span>
-                <strong>Ver tudo</strong>
+
+            <footer class="post-footer">
+                <div class="post-actions">
+                    <button class="heart-btn" title="Curtir" onclick="toggleHeart(this)">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <button title="Comentar">
+                        <i class="fa-regular fa-comment"></i>
+                    </button>
+                    <button title="Compartilhar">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                    <button class="save-btn" title="Salvar" onclick="toggleSave(this)">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                </div>
+                <div class="likes">2.000 curtidas</div>
+                <div class="tagged-people">
+                    Marcado: <a href="#">@vivianevitoria26</a>, <a href="#">@vycnnz</a>, <a href="#">@brenda_12ra</a>
+                </div>
+                <div class="caption">
+                    <strong class="caption-user">maa.eduardab</strong>
+                    🐚🧿
+                </div>
+                <span class="post-comments-link">Ver todos os 142 comentários</span>
+                <span class="post-time">há 5 horas</span>
+                <div class="add-comment">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </footer>
+        </article>
+
+        <!-- post -->
+        <article class="post">
+            <header class="post-header">
+                <div class="user-info">
+                    <div class="profile-pic">
+                        <img src="fotos/fernandasoparabrasileirinhos.jpg" alt="fernandasoparabrasileirinhos"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="user-meta">
+                        <span class="post-username">fernandasoparabrasileirinhos</span>
+                    </div>
+                </div>
+                <button style="background:none;border:none;cursor:pointer;font-size:16px;color:#262626;">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </button>
+            </header>
+
+            <!-- carrossel correto com indicador de páginas -->
+            <div class="post-image">
+                <div class="carousel" id="carousel3">
+                    <img src="fotos/fernanda1.jpg" alt="Foto 1"
+                         onerror="this.src='https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600'">
+                    <img src="fotos/fernanda2.jpg" alt="Foto 2"
+                         onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600'">
+                </div>
             </div>
-            </aside>
-    </div>
+            <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="post-actions">
+                    <button class="heart-btn" title="Curtir" onclick="toggleHeart(this)">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <button title="Comentar">
+                        <i class="fa-regular fa-comment"></i>
+                    </button>
+                    <button title="Compartilhar">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                    <button class="save-btn" title="Salvar" onclick="toggleSave(this)">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                </div>
+                <div class="likes">3.000 curtidas</div>
+                <div class="caption">
+                    <strong class="caption-user">fernandasoparabrasileirinhos</strong>
+                    🌸✨
+                </div>
+                <span class="post-comments-link">Ver todos os 87 comentários</span>
+                <span class="post-time">há 1 dia</span>
+                <div class="add-comment">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </footer>
+        </article>
+
+    </main>
+
+    <!-- ── sugestões ── -->
+    <aside class="suggestions-sidebar">
+        <!-- Usuário atual -->
+        <div class="current-user">
+            <div class="current-user-pic">
+                <img src="fotos/vitoria.png" alt="vycnnz"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="current-user-info">
+                <strong>vycnnz</strong>
+                <span>vivi</span>
+            </div>
+            <button class="switch-btn">Mudar</button>
+        </div>
+
+<!-- Sugestões -->
+        <div class="sug-header">
+            <span>Sugestões para você</span>
+            <a href="#">Ver tudo</a>
+        </div>
+        <div class="suggestion-item">
+            <div class="sug-pic">
+                <img src="fotos/beatrizferrai19.jpg" alt="beatrizferrai19"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="sug-info">
+                <strong>beatrizferrai19</strong>
+                <span>Seguido por riany_carolina</span>
+            </div>
+            <button class="follow-btn">Seguir</button>
+        </div>
+        <div class="suggestion-item">
+            <div class="sug-pic">
+                <img src="fotos/fernanda_coltro.jpg" alt="fernanda_coltro"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="sug-info">
+                <strong>fernanda_coltro</strong>
+                <span>Seguido por gabxx._.</span>
+            </div>
+            <button class="follow-btn">Seguir</button>
+        </div>
+        <div class="suggestion-item">
+            <div class="sug-pic">
+                <img src="fotos/m3l.etc.jpg" alt="nataliecarinie"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="sug-info">
+                <strong>🧛‍♀️</strong>
+                <span>Novo no Instagram</span>
+            </div>
+            <button class="follow-btn">Seguir</button>
+        </div>
+        <div class="suggestion-item">
+            <div class="sug-pic">
+                <img src="fotos/salonline.jpg" alt="gucbbar"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="sug-info">
+                <strong>Salon Line</strong>
+                <span>Seguido por maa.eduardab</span>
+            </div>
+            <button class="follow-btn">Seguir</button>
+        </div>
+        <div class="suggestion-item">
+            <div class="sug-pic">
+                <img src="fotos/adotevica.jpg" alt="brenda_12ra"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="sug-info">
+                <strong>ADOTE ViCa</strong>
+                <span>Segue você</span>
+            </div>
+            <button class="follow-btn">Seguir</button>
+        </div>
+<!--final das sugestoes-->
+
+        <!-- Footer links -->
+        <div class="footer-links">
+            <a href="#">Sobre</a> · <a href="#">Ajuda</a> · <a href="#">Imprensa</a> ·
+            <a href="#">API</a> · <a href="#">Emprego</a> · <a href="#">Privacidade</a> ·
+            <a href="#">Termos</a> · <a href="#">Locais</a> · <a href="#">Linguagem</a>
+        </div>
+        <p class="footer-copy">© 2026 Instagram da Meta</p>
+    </aside>
+</div>
+
+<!--java-->
+<script>
+    function toggleHeart(btn) {
+        const icon = btn.querySelector('i');
+        const post = btn.closest('.post');
+        const likesEl = post.querySelector('.likes');
+
+        const parseLikes = (text) => {
+            const match = text.match(/[\d.,]+/);
+            if (!match) return 0;
+            return parseInt(match[0].replace(/\./g, '').replace(',', '.'));
+        };
+
+        if (icon.classList.contains('fa-regular')) {
+            icon.classList.replace('fa-regular', 'fa-solid');
+            icon.style.color = '#ed4956';
+            icon.style.transform = 'scale(1.2)';
+            setTimeout(() => icon.style.transform = 'scale(1)', 150);
+            let n = parseLikes(likesEl.textContent);
+            n++;
+            likesEl.innerHTML = formatNum(n) + ' curtidas';
+        } else {
+            icon.classList.replace('fa-solid', 'fa-regular');
+            icon.style.color = '';
+            let n = parseLikes(likesEl.textContent);
+            n--;
+            likesEl.innerHTML = formatNum(n) + ' curtidas';
+        }
+    }
+    function toggleSave(btn) {
+        const icon = btn.querySelector('i');
+        if (icon.classList.contains('fa-regular')) {
+            icon.classList.replace('fa-regular', 'fa-solid');
+        } else {
+            icon.classList.replace('fa-solid', 'fa-regular');
+        }
+    }
+    function formatNum(n) {
+        if (n >= 1000) {
+            return n.toLocaleString('pt-BR');
+        }
+        return n;
+    }
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const dots = carousel.closest('.post').querySelectorAll('.dot');
+        if (!dots.length) return;
+        carousel.addEventListener('scroll', () => {
+            const idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        });
+    });
+    document.querySelectorAll('.follow-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.textContent === 'Seguir') {
+                btn.textContent = 'Seguindo';
+                btn.style.color = '#8e8e8e';
+            } else {
+                btn.textContent = 'Seguir';
+                btn.style.color = '#0095f6';
+            }
+        });
+    });
+    const navItems = document.querySelectorAll('.nav-links li');
+    const searchPanel = document.createElement('div');
+    searchPanel.id = 'search-panel';
+    searchPanel.innerHTML = `
+        <div style="padding:24px 16px 16px;">
+            <h2 style="font-size:24px;font-weight:700;margin-bottom:20px;">Pesquisar</h2>
+            <div style="background:#efefef;border-radius:10px;display:flex;align-items:center;gap:8px;padding:8px 12px;margin-bottom:20px;">
+                <i class="fa-solid fa-magnifying-glass" style="color:#8e8e8e;font-size:14px;"></i>
+                <input id="search-input" type="text" placeholder="Pesquisar" style="border:none;outline:none;background:transparent;font-size:14px;width:100%;">
+            </div>
+            <p style="font-weight:600;font-size:14px;margin-bottom:16px;color:#262626;">Recentes</p>
+            <p style="color:#8e8e8e;font-size:14px;text-align:center;margin-top:40px;">Nenhuma pesquisa recente.</p>
+        </div>
+    `;
+    Object.assign(searchPanel.style, {
+        position:'fixed', left:'244px', top:'0', width:'397px', height:'100vh',
+        background:'#fff', borderRight:'1px solid #dbdbdb', zIndex:'99',
+        display:'none', overflowY:'auto', boxShadow:'4px 0 10px rgba(0,0,0,0.08)'
+    });
+    document.body.appendChild(searchPanel);
+    const notifPanel = document.createElement('div');
+    notifPanel.id = 'notif-panel';
+    notifPanel.innerHTML = `
+        <div style="padding:24px 16px 16px;">
+            <h2 style="font-size:24px;font-weight:700;margin-bottom:20px;">Notificações</h2>
+            <p style="font-weight:600;font-size:14px;margin-bottom:12px;color:#262626;">Hoje</p>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <div style="width:44px;height:44px;border-radius:50%;background:#f0f0f0;flex-shrink:0;"></div>
+                <p style="font-size:14px;color:#262626;"><strong>vivianevitoria26</strong> curtiu sua foto. <span style="color:#8e8e8e;">2h</span></p>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <div style="width:44px;height:44px;border-radius:50%;background:#f0f0f0;flex-shrink:0;"></div>
+                <p style="font-size:14px;color:#262626;"><strong>maa.eduardab</strong> começou a seguir você. <span style="color:#8e8e8e;">5h</span></p>
+            </div>
+        </div>
+    `;
+    Object.assign(notifPanel.style, {
+        position:'fixed', left:'244px', top:'0', width:'397px', height:'100vh',
+        background:'#fff', borderRight:'1px solid #dbdbdb', zIndex:'99',
+        display:'none', overflowY:'auto', boxShadow:'4px 0 10px rgba(0,0,0,0.08)'
+    });
+    document.body.appendChild(notifPanel);
+    const createModal = document.createElement('div');
+    createModal.id = 'create-modal';
+    createModal.innerHTML = `
+        <div id="create-modal-box" style="background:#fff;border-radius:16px;width:440px;padding:24px;position:relative;">
+            <button id="close-modal-btn" style="position:absolute;right:16px;top:16px;background:none;border:none;cursor:pointer;font-size:20px;color:#262626;"><i class="fa-solid fa-xmark"></i></button>
+            <h2 style="text-align:center;font-size:18px;font-weight:700;margin-bottom:0;border-bottom:1px solid #dbdbdb;padding-bottom:16px;">Criar nova publicação</h2>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:32px 0;">
+                <i class="fa-regular fa-image" style="font-size:64px;color:#262626;"></i>
+                <p style="font-size:20px;font-weight:300;">Arraste fotos e vídeos aqui</p>
+                <label style="background:#0095f6;color:#fff;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;">
+                    Selecionar do computador
+                    <input type="file" accept="image/*,video/*" style="display:none;" id="file-input">
+                </label>
+            </div>
+        </div>
+    `;
+    Object.assign(createModal.style, {
+        position:'fixed', inset:'0', background:'rgba(0,0,0,0.65)',
+        display:'none', alignItems:'center', justifyContent:'center', zIndex:'200'
+    });
+    document.body.appendChild(createModal);
+
+    document.getElementById('close-modal-btn')?.addEventListener('click', () => {
+        createModal.style.display = 'none';
+    });
+
+    createModal.addEventListener('click', (e) => {
+        if (e.target === createModal) createModal.style.display = 'none';
+    });
+
+    document.addEventListener('change', (e) => {
+        if (e.target.id !== 'file-input') return;
+        const file = e.target.files[0];
+        if (!file) return;
+        const url = URL.createObjectURL(file);
+        document.getElementById('create-modal-box').innerHTML = `
+            <button id="close-modal-btn2" style="position:absolute;right:16px;top:16px;background:none;border:none;cursor:pointer;font-size:20px;color:#262626;"><i class="fa-solid fa-xmark"></i></button>
+            <h2 style="text-align:center;font-size:18px;font-weight:700;border-bottom:1px solid #dbdbdb;padding-bottom:16px;">Nova publicação</h2>
+            <img src="${url}" style="width:100%;max-height:300px;object-fit:cover;border-radius:8px;margin-top:16px;">
+            <textarea placeholder="Escreva uma legenda..." style="width:100%;margin-top:12px;border:none;outline:none;resize:none;font-size:14px;height:80px;border-top:1px solid #efefef;padding-top:12px;color:#262626;"></textarea>
+            <button style="width:100%;background:#0095f6;color:#fff;border:none;border-radius:8px;padding:10px;font-weight:700;font-size:14px;cursor:pointer;margin-top:8px;">Compartilhar</button>
+        `;
+        document.getElementById('close-modal-btn2').addEventListener('click', () => {
+            createModal.style.display = 'none';
+        });
+    });
+
+    let prevActive = null;
+    let openPanel = null;
+
+    function closePanels() {
+        searchPanel.style.display = 'none';
+        notifPanel.style.display = 'none';
+        openPanel = null;
+    }
+
+    function setActive(li) {
+        navItems.forEach(i => i.classList.remove('active'));
+        if (li) li.classList.add('active');
+        prevActive = li;
+    }
+
+    navItems.forEach(li => {
+        li.addEventListener('click', () => {
+            const label = li.querySelector('span')?.textContent.trim();
+
+            if (label === 'Pesquisar') {
+                if (openPanel === 'search') {
+                    closePanels();
+                    setActive(prevActive && prevActive !== li ? prevActive : homeItem);
+                } else {
+                    closePanels();
+                    searchPanel.style.display = 'block';
+                    openPanel = 'search';
+                    setTimeout(() => document.getElementById('search-input')?.focus(), 50);
+                    setActive(li);
+                }
+                return;
+            }
+
+            if (label === 'Curtidas') {
+                if (openPanel === 'notif') {
+                    closePanels();
+                    setActive(homeItem);
+                } else {
+                    closePanels();
+                    notifPanel.style.display = 'block';
+                    openPanel = 'notif';
+                    setActive(li);
+                }
+                return;
+            }
+
+            if (label === 'Criar') {
+                createModal.style.display = 'flex';
+                return;
+            }
+
+            closePanels();
+            setActive(li);
+        });
+    });
+
+    // Define "Página inicial" como item padrão ativo
+    let homeItem = null;
+    navItems.forEach(li => {
+        if (li.querySelector('span')?.textContent.trim() === 'Página inicial') {
+            homeItem = li;
+            prevActive = li;
+        }
+    });
+</script>
 
 </body>
 </html>
