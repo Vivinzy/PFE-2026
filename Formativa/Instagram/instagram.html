@@ -195,6 +195,75 @@
             </div>
         </div>
 
+        <!-- post com 3 vídeos em carrossel -->
+        <article class="post">
+            <header class="post-header">
+                <div class="user-info">
+                    <div class="profile-pic">
+                        <img src="fotos/vitoria.png" alt="vitoria"
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="user-meta">
+                        <span class="post-username">vycnnz</span>
+                    </div>
+                </div>
+                <button style="background:none;border:none;cursor:pointer;font-size:16px;color:#262626;">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </button>
+            </header>
+
+            <div class="post-image" style="position:relative;">
+                <!-- setas de navegação -->
+                <button onclick="moveCarousel('videoCarousel', -1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,0.3);">&#8249;</button>
+                <div class="carousel" id="videoCarousel" style="scroll-behavior:smooth;">
+                    <video controls muted loop playsinline style="scroll-snap-align:start;flex-shrink:0;width:100%;max-height:585px;object-fit:cover;">
+                        <source src="PixVerse_V5_6_Image_Text_360P_faça_ela_sorrind__1_.mp4" type="video/mp4">
+                    </video>
+                    <video controls muted loop playsinline style="scroll-snap-align:start;flex-shrink:0;width:100%;max-height:585px;object-fit:cover;">
+                        <source src="PixVerse_V5_6_Image_Text_360P_faça_ele_tomando.mp4" type="video/mp4">
+                    </video>
+                    <video controls muted loop playsinline style="scroll-snap-align:start;flex-shrink:0;width:100%;max-height:585px;object-fit:cover;">
+                        <source src="PixVerse_V5_6_Image_Text_360P_faça_os_dois_sor.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <button onclick="moveCarousel('videoCarousel', 1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,0.3);">&#8250;</button>
+                <!-- contador de slides -->
+                <div id="videoCarouselCounter" style="position:absolute;top:10px;right:12px;background:rgba(0,0,0,0.55);color:#fff;font-size:12px;font-weight:600;padding:3px 9px;border-radius:12px;">1 / 3</div>
+            </div>
+            <div class="carousel-dots" id="videoCarouselDots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="post-actions">
+                    <button class="heart-btn" title="Curtir" onclick="toggleHeart(this)">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <button title="Comentar">
+                        <i class="fa-regular fa-comment"></i>
+                    </button>
+                    <button title="Compartilhar">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                    <button class="save-btn" title="Salvar" onclick="toggleSave(this)">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                </div>
+                <div class="likes">847 curtidas</div>
+                <div class="caption">
+                    <strong class="caption-user">vivi</strong>
+                    momentos especiais 🤍✨
+                </div>
+                <span class="post-time">há 1 hora</span>
+                <div class="add-comment">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </footer>
+        </article>
+
         <!-- posts  -->
         <article class="post">
             <header class="post-header">
@@ -655,6 +724,39 @@
             closePanels();
             setActive(li);
         });
+    });
+
+    // Carrossel de vídeos com setas
+    window.moveCarousel = function(id, dir) {
+        const carousel = document.getElementById(id);
+        const items = carousel.querySelectorAll('video, img');
+        const total = items.length;
+        const itemWidth = carousel.offsetWidth;
+        const current = Math.round(carousel.scrollLeft / itemWidth);
+        const next = Math.max(0, Math.min(total - 1, current + dir));
+        carousel.scrollTo({ left: next * itemWidth, behavior: 'smooth' });
+        const counter = document.getElementById(id + 'Counter');
+        if (counter) counter.textContent = (next + 1) + ' / ' + total;
+        const dotsContainer = document.getElementById(id + 'Dots');
+        if (dotsContainer) {
+            dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
+                d.classList.toggle('active', i === next);
+            });
+        }
+    };
+
+    document.getElementById('videoCarousel')?.addEventListener('scroll', function() {
+        const itemWidth = this.offsetWidth;
+        const current = Math.round(this.scrollLeft / itemWidth);
+        const total = this.querySelectorAll('video, img').length;
+        const counter = document.getElementById('videoCarouselCounter');
+        if (counter) counter.textContent = (current + 1) + ' / ' + total;
+        const dotsContainer = document.getElementById('videoCarouselDots');
+        if (dotsContainer) {
+            dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
+                d.classList.toggle('active', i === current);
+            });
+        }
     });
 
     // Define "Página inicial" como item padrão ativo
