@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3 - UI e Handover</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; }
+
+        /* O Handover: Extrair cores e tipografia do design [cite: 43, 44, 45] */
+        .btn-compra {
+            background-color: #000000; /* Cor Hexadecimal [cite: 44] */
+            color: #ffffff;
+            padding: 12px 32px; /* Medindo margens e paddings [cite: 46] */
+            font-weight: 600; /* Peso da fonte extraído do design [cite: 45] */
+            
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s; /* UI: Elemento interativo [cite: 59] */
+        }
+
+        .btn-compra:hover {
+            background-color: #333333; /* Feedback visual [cite: 13] */
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-compra">Finalizar Compra</button>
+</body>
+</html>
