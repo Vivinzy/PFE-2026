@@ -31,6 +31,8 @@ const App = () => {
         <h2>Etapa Atual: {aulas[etapa].title}</h2>
         <p>{aulas[etapa].desc}</p>
         
+
+        {/* botões para navegar */}
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
           <button style={styles.button} onClick={() => setEtapa(0)}>1. Luz</button>
           <button style={styles.button} onClick={() => setEtapa(1)}>2. Absorção</button>
@@ -45,7 +47,9 @@ const App = () => {
 };
 
 const Quiz = () => {
+  // Estado para controlar se a resposta foi mostrada ou não
   const [respondido, setRespondido] = useState(false);
+
 
   return (
     <section style={{...styles.card, backgroundColor: '#00773c6c'}}>

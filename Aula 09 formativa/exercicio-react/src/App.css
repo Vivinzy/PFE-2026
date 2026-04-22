@@ -1,0 +1,170 @@
+:root {
+  --low: #ffe6fb; /* baixa */
+  --medium: #ff84ef; /* media */
+  --high: #b30095; /* alta */
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-section form {
+  display: flex;
+  gap: 10px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-section input { flex: 3; padding: 10px; }
+.form-section select { flex: 1; }
+.form-section button { padding: 10px 16px; cursor: pointer; }
+
+/* 2. Busca em tempo real */
+.search-input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* ── Filtros ── */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filter-section button {
+  padding: 8px 18px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.filter-section button.active {
+  background: #333;
+  color: white;
+}
+
+/* ── Grid de cards ── */
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.task-card {
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 8px solid #ccc;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 1. Cores por prioridade */
+.task-card.baixa  { border-color: var(--low); }
+.task-card.média  { border-color: var(--medium); }
+.task-card.alta   { border-color: var(--high); }
+.task-card.done   { opacity: 0.6; background: #e9ecef; }
+
+.task-content h3    { margin: 0 0 10px 0; font-size: 1.1rem; }
+.task-content span  { display: block; font-size: 0.8rem; font-weight: bold; }
+.task-content small { display: block; font-size: 0.75rem; color: #666; margin-top: 4px; }
+
+/* 3. Input de edição inline */
+.edit-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #adb5bd;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* ── Ações do card ── */
+.task-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.task-actions button {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #f8f9fa;
+  cursor: pointer;
+}
+
+.task-actions button:hover { background: #e2e6ea; }
+.task-actions button.delete { background: #ff4d4d; color: white; border-color: #ff4d4d; }
+.task-actions button.delete:hover { background: #e03e3e; }
+
+/* 4. Modal de confirmação */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  padding: 28px 24px;
+  max-width: 360px;
+  width: 90%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.modal p {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal-actions button {
+  padding: 8px 22px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modal-actions button.delete {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
