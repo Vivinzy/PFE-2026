@@ -1,34 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-const PRIORITY_ORDER = { Alta: 0, Média: 1, Baixa: 2 }; // Define a ordem de prioridade para a ordenação 
+const PRIORITY_ORDER = { Alta: 0, Média: 1, Baixa: 2 }; 
 
 
-function App() { // estados para controlar a aplicação (base de dados local)
+function App() {
+// Estados da Tarefa
+  const [taskText, setTaskText] = useState(""); 
+  const [priority, setPriority] = useState("Baixa"); 
+  const [taskList, setTaskList] = useState([]); 
+  const [filter, setFilter] = useState("Todas"); 
+  const [search, setSearch] = useState(""); 
+  const [editingId, setEditingId] = useState(null);  
+  const [editingText, setEditingText] = useState("");
+  const [editingpriority, setEditingpriority] = useState("");
+  const [confirmId, setConfirmId] = useState(null); 
 
-  const [taskText, setTaskText] = useState(""); // taskText armazena o texto da nova tarefa a ser criada. O estado é atualizado conforme o usuário digita no campo de entrada.
-  const [priority, setPriority] = useState("Baixa"); // priority armazena a prioridade "baixa, media ou alta"
-  const [taskList, setTaskList] = useState([]); // tasklist lista de todas as tarefas criadas 
-  const [filter, setFilter] = useState("Todas"); // filter controla qual filtro está ativo "todos, pendentes ou concluidas"
-  const [search, setSearch] = useState(""); // search guarda o texto da barra de busca
-  const [editingId, setEditingId] = useState(null); // editingId guarad o ID da tarefa que está sendo editada e null se nenhuma tarefa estiver sendo editada 
-  const [editingText, setEditingText] = useState(""); //editingText texto temporario enquanto o usuario edita 
-  const [confirmId, setConfirmId] = useState(null); // confirmId guarda o ID da tarefa aguardando confirmação de exclusão, null se nenhuma tarefa estiver sendo confirmada para exclusão
-
-  useEffect(() => { // serve para carregar as tarefas salvas no LocalStorage quando o componente é montado(LocalStorage salva os dados mesmo após o navegador fechado)
-    const saved = localStorage.getItem("@taskflow_data"); // tenta recuperar os dados salvos no LocalStorage usando a chave "@taskflow_data"
-    if (saved) setTaskList(JSON.parse(saved)); // se houver dados salvos, eles são convertidos de volta para um array de objetos usando JSON.parse e atribuídos ao estado taskList, permitindo que as tarefas sejam exibidas na interface do usuário.
+  // Carrega tarefas do localStorage ao iniciar
+  useEffect(() => { 
+    const saved = localStorage.getItem("@taskflow_data"); 
+    if (saved) setTaskList(JSON.parse(saved)); 
   }, []);
 
+  // Salva tarefas no localStorage sempre que a lista mudar
   useEffect(() => { 
     localStorage.setItem("@taskflow_data", JSON.stringify(taskList));
   }, [taskList]);
 
+  // Função para adicionar nova tarefa
   const addTask = (e) => {
     e.preventDefault();
     if (!taskText.trim()) return;
     const newTask = {
-      id: crypto.randomUUID(),
+      id: crypto.randomUUID(), 
       text: taskText,
       priority: priority,
       completed: false,
@@ -37,14 +41,13 @@ function App() { // estados para controlar a aplicação (base de dados local)
     setTaskList([newTask, ...taskList]);
     setTaskText("");
   };
-
+ // altera status de conclusão
   const toggleTask = (id) => {
     setTaskList(taskList.map(t =>
       t.id === id ? { ...t, completed: !t.completed } : t
     ));
   };
 
-  // 4. Confirmação de exclusão com modal customizado
   const askDelete = (id) => setConfirmId(id);
 
   const confirmDelete = () => {
@@ -52,10 +55,13 @@ function App() { // estados para controlar a aplicação (base de dados local)
     setConfirmId(null);
   };
 
-  // 3. Edição de tarefas inline
   const startEdit = (task) => {
     setEditingId(task.id);
     setEditingText(task.text);
+  };
+  const starEdit = (priority) => {
+    setEditingId(priority.id);
+    setEditingText(priority.priority);
   };
 
   const saveEdit = (id) => {
@@ -65,15 +71,16 @@ function App() { // estados para controlar a aplicação (base de dados local)
     ));
     setEditingId(null);
     setEditingText("");
+    setEditingpriority("");
   };
 
   const cancelEdit = () => {
     setEditingId(null);
     setEditingText("");
+    setEditingpriority("");
   };
 
-  // 1. Ordenação automática: Alta no topo
-  // 2. Busca em tempo real + filtro de status
+// Aplica filtros, busca e ordenação
   const filteredTasks = taskList
     .filter(t => {
       if (filter === "Pendentes") return !t.completed;
@@ -82,12 +89,11 @@ function App() { // estados para controlar a aplicação (base de dados local)
     })
     .filter(t => t.text.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => (PRIORITY_ORDER[a.priority] ?? 2) - (PRIORITY_ORDER[b.priority] ?? 2));
-
+ 
+  
   return (
     <div className="app-container">
       <header>
-        {/* colocar imagem aqui */}
-
         <h1>TaskFlow</h1>
         <p>Gestão de Produtividade</p>
       </header>
@@ -107,7 +113,6 @@ function App() { // estados para controlar a aplicação (base de dados local)
           <button type="submit">Criar</button>
         </form>
 
-        {/* 2. Campo de busca em tempo real */}
         <input
           className="search-input"
           value={search}
@@ -135,7 +140,6 @@ function App() { // estados para controlar a aplicação (base de dados local)
             className={`task-card ${item.priority.toLowerCase()} ${item.completed ? 'done' : ''}`}
           >
             <div className="task-content">
-              {/* 3. Edição inline */}
               {editingId === item.id ? (
                 <input
                   className="edit-input"
@@ -176,7 +180,6 @@ function App() { // estados para controlar a aplicação (base de dados local)
         ))}
       </main>
 
-      {/* 4. Modal de confirmação de exclusão */}
       {confirmId && (
         <div className="modal-overlay" onClick={() => setConfirmId(null)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>

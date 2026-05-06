@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
+
+/* Alteração 1: Variáveis e fontes novas */
+:root {
+  --palestra: #ff00ea;
+  --workshop: #fc007e;
+  --painel: #9900ff;
+  --bg-encerrado: #cdfff2;
+  --accent: #dad3ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f8f9ff;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.app-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+  color: #1f2937;
+}
+
+/* Alteração 2: Header com gradiente animado */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 70%, #6366f1 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+  color: white;
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.35);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -1px;
+  color: white;
+}
+
+header p {
+  margin: 4px 0 0;
+  opacity: 0.75;
+  font-size: 0.95rem;
+}
+
+.clear-btn {
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.clear-btn:hover {
+  background: rgba(239,68,68,0.7);
+  border-color: transparent;
+}
+
+/* Formulário */
+.form-section form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border: 1px solid #e5e7eb;
+}
+
+.form-section input {
+  flex: 3;
+  min-width: 180px;
+  padding: 11px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.2s;
+}
+
+.form-section input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-section select {
+  flex: 1;
+  min-width: 120px;
+  padding: 11px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  background: white;
+  cursor: pointer;
+}
+
+.form-section button {
+  padding: 11px 24px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-family: 'Syne', sans-serif;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.form-section button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(99,102,241,0.4);
+}
+
+/* Alteração 3: Barra de pesquisa glassmorphism */
+.search-section {
+  margin: 20px 0 0;
+}
+
+.search-input {
+  width: 100%;
+  padding: 13px 18px;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+/* Filtros */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.filter-section button {
+  padding: 8px 18px;
+  background: white;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.filter-section button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-section button.active {
+  background: #1e1b4b;
+  color: white;
+  border-color: #1e1b4b;
+  font-weight: 600;
+}
+
+/* Grid de eventos */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+/* Alteração 4: Cards com hover elevado */
+.event-card {
+  padding: 18px;
+  border-radius: 12px;
+  border-top: 5px solid #ccc;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 190px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.13);
+}
+
+.event-card.palestra { border-top-color: var(--palestra); }
+.event-card.workshop { border-top-color: var(--workshop); }
+.event-card.painel   { border-top-color: var(--painel); }
+
+.event-card.em-andamento {
+  background: #fbfbfe;
+  outline: 2px solid rgba(99,102,241,0.25);
+}
+
+.event-card.encerrado {
+  opacity: 0.55;
+  background: var(--bg-encerrado);
+  box-shadow: none;
+}
+
+.event-content h3 {
+  margin: 0 0 10px 0;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.event-tag, .status-badge, .vagas-badge {
+  display: block;
+  font-size: 0.82rem;
+  margin-bottom: 3px;
+}
+
+.event-tag { color: #4b5563; font-weight: 500; }
+.status-badge { font-weight: 700; color: #1f2937; }
+.vagas-badge { color: #6b7280; }
+
+small {
+  color: #9ca3af;
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+}
+
+.event-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.event-actions button {
+  flex: 1;
+  min-width: 70px;
+  padding: 7px 6px;
+  font-size: 0.82rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+
+/* Alteração 5: botão de status com cores por estado */
+.event-actions button.status-btn {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #6ee7b7;
+  font-weight: 600;
+}
+
+.event-card.em-andamento .status-btn {
+  background: #fff7ed;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.event-card.encerrado .status-btn {
+  background: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.enroll-btn {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #93c5fd !important;
+  font-weight: 600;
+}
+
+.enroll-btn:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  border-color: #e5e7eb !important;
+  cursor: not-allowed;
+}
+
+.event-actions button.delete {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+  font-weight: 600;
+}
+
+.event-actions button.delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Desafio 5 — Botão FAB redondo */
+.fab-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4338ca, #6366f1);
+  color: white;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(99,102,241,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 100;
+}
+
+.fab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(99,102,241,0.65);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(3px);
+}
+
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.modal-box h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 1.2rem;
+  color: #1e1b4b;
+}
+
+.modal-box ul {
+  padding-left: 0;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-box ul li {
+  padding: 10px 14px;
+  background: #f5f3ff;
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.modal-close {
+  width: 100%;
+  padding: 11px;
+  background: #1e1b4b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: 'Syne', sans-serif;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--accent);
+}
