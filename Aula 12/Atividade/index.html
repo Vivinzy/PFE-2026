@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard EdTech</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 1. SweetAlert2 adicionado aqui -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+    body{
+        background-color:#fff5f7;
+    }
+
+    .pink-300{
+        background-color:#ee8fa2;
+    }
+
+    .pink-200{
+        background-color:#f5b5c0;
+    }
+
+    .sidebar{
+        min-height:100vh;
+        background-color:#f8d7da;
+    }
+
+    .content{
+        margin-top:80px;
+    }
+
+    .card{
+        border:none;
+        border-radius:12px;
+    }
+
+    .card h2{
+        font-size:2rem;
+        font-weight:bold;
+    }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark pink-300 fixed-top">
+    <div class="container-fluid">
+
+        <a class="navbar-brand fw-bold" href="#">
+            EdTech Senai
+        </a>
+
+        <form class="d-flex ms-auto">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar">
+            <button class="btn btn-light">Buscar</button>
+        </form>
+
+        <div class="d-flex align-items-center ms-3">
+    <img
+        src="img/senai.jpg"
+        width="40"
+        height="40"
+        class="rounded-circle"
+        alt="Usuário">
+</div>
+
+    </div>
+</nav>
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- SIDEBAR -->
+        <aside class="col-lg-2 d-none d-lg-block sidebar p-3">
+
+            <h4 class="mt-5">Menu</h4>
+
+            <ul class="nav flex-column mt-4">
+
+                <li class="nav-item">
+                    <a class="nav-link fw-bold text-dark" href="index.html">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="alunos.html">
+                        Alunos
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="cursos.html">
+                        Cursos
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="chamados.html">
+                        Chamados
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="col-lg-10 content p-4">
+
+            <h2 class="mb-4">
+                Dashboard Educacional
+            </h2>
+
+            <!-- CARDS -->
+<div class="row g-3">
+
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-bg-primary shadow-sm h-100">
+            <div class="card-body">
+                <h6>Total de Alunos Ativos</h6>
+                <h2>320</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-bg-success shadow-sm h-100">
+            <div class="card-body">
+                <h6>Cursos Publicados</h6>
+                <h2>24</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card bg-warning text-dark">
+            <div class="card-body">
+                <h6>Taxa de Retenção</h6>
+                <h2>87%</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-bg-danger shadow-sm h-100">
+            <div class="card-body">
+                <h6>Chamados Abertos</h6>
+                <h2>12</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+            <!-- ALERTA -->
+            <div class="alert alert-warning mt-4">
+                Manutenção programada hoje às 23h.
+            </div>
+
+            <!-- BOTÃO -->
+            <div class="mb-3">
+                <button
+                    class="btn btn-dark"
+                    data-bs-toggle="modal"
+                    data-bs-target="#alunoModal">
+
+                    Cadastrar Novo Aluno
+                </button>
+            </div>
+
+            <!-- TABELA -->
+            <div class="table-responsive">
+
+                <table class="table table-striped table-hover">
+
+                    <thead class="pink-200">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Curso</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaAlunos">
+
+                        <tr>
+                            <td>1</td>
+                            <td>Vitória</td>
+                            <td>Desenvolvimento</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    Pago
+                                </span>
+                            </td>
+                            <td>
+                        <button
+                        class="btn btn-sm btn-outline-primary"
+                        onclick="editarAluno(this)">
+                        Editar
+                    </button>
+
+                       <button
+                        class="btn btn-sm btn-outline-danger"
+                        onclick="excluirAluno(this)">
+                        Excluir
+                        </button>
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>João</td>
+                            <td>Administração</td>
+                            <td>
+                                <span class="badge bg-danger">
+                                    Pendente
+                                </span>
+                            </td>
+                            <td>
+                           <button
+                            class="btn btn-sm btn-outline-primary"
+                            onclick="editarAluno(this)">
+                            Editar
+                        </button>
+
+                        <button
+                        class="btn btn-sm btn-outline-danger"
+                        onclick="excluirAluno(this)">
+                        Excluir
+                        </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Ana</td>
+                            <td>TI</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    Pago
+                                </span>
+                            </td>
+                            <td>
+                                <button
+                                    class="btn btn-sm btn-outline-primary"
+                                    onclick="editarAluno(this)">
+                                    Editar
+                                </button>
+
+                        <button
+                        class="btn btn-sm btn-outline-danger"
+                        onclick="excluirAluno(this)">
+                        Excluir
+                        </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>Pedro</td>
+                            <td>Mecânica</td>
+                            <td>
+                                <span class="badge bg-danger">
+                                    Pendente
+                                </span>
+                            </td>
+                            <td>
+                                <button
+                                    class="btn btn-sm btn-outline-primary"
+                                    onclick="editarAluno(this)">
+                                    Editar
+                                </button>
+
+                        <button
+                        class="btn btn-sm btn-outline-danger"
+                        onclick="excluirAluno(this)">
+                        Excluir
+                        </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>Maria</td>
+                            <td>Logística</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    Pago
+                                </span>
+                            </td>
+                            <td>
+                               <button
+                            class="btn btn-sm btn-outline-primary"
+                            onclick="editarAluno(this)">
+                            Editar
+                        </button>
+
+                        <button
+                        class="btn btn-sm btn-outline-danger"
+                        onclick="excluirAluno(this)">
+                        Excluir
+                        </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- PAGINAÇÃO -->
+            <div class="d-flex justify-content-end">
+
+                <nav>
+                    <ul class="pagination">
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                Anterior
+                            </a>
+                        </li>
+
+                        <li class="page-item active">
+                            <a class="page-link" href="#">
+                                1
+                            </a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                2
+                            </a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                3
+                            </a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                Próximo
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="alunoModal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header pink-200">
+
+                <h5 class="modal-title">
+                    Cadastro de Aluno
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+    <form class="needs-validation" novalidate>
+
+        <div class="mb-3">
+            <label class="form-label">
+                Nome Completo
+            </label>
+
+           <input
+            type="text"
+            id="nomeAluno"
+            class="form-control"
+            required>
+
+            <div class="invalid-feedback">
+                Informe o nome completo do aluno.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">
+                Curso
+            </label>
+
+            <select id="cursoAluno" class="form-select" required>
+
+                <option value="">
+                    Selecione um curso
+                </option>
+
+                <option>Desenvolvimento</option>
+                <option>Administração</option>
+                <option>Mecânica</option>
+                <option>Logística</option>
+
+            </select>
+
+            <div class="invalid-feedback">
+                Selecione um curso.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">
+                Foto de Perfil
+            </label>
+
+            <input
+                type="file"
+                class="form-control">
+        </div>
+
+    </form>
+
+</div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <button
+                id="btnSalvar"
+                class="btn btn-dark">
+                 Salvar
+            </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.getElementById('btnSalvar').addEventListener('click', function () {
+
+    let nome = document.getElementById('nomeAluno').value;
+    let curso = document.getElementById('cursoAluno').value;
+
+    // 2. Troca do alert() por Swal.fire() de erro
+    if (nome === '' || curso === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Campos obrigatórios',
+            text: 'Preencha todos os campos!',
+            confirmButtonColor: '#ee8fa2'
+        });
+        return;
+    }
+
+    let tabela = document.getElementById('tabelaAlunos');
+    let novoId = tabela.rows.length + 1;
+
+    let linha = `
+        <tr>
+            <td>${novoId}</td>
+            <td>${nome}</td>
+            <td>${curso}</td>
+            <td>
+                <span class="badge bg-success">Pago</span>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-outline-primary" onclick="editarAluno(this)">Editar</button>
+                <button class="btn btn-sm btn-outline-danger" onclick="excluirAluno(this)">Excluir</button>
+            </td>
+        </tr>
+    `;
+
+    tabela.innerHTML += linha;
+
+    document.getElementById('nomeAluno').value = '';
+    document.getElementById('cursoAluno').selectedIndex = 0;
+
+    let modal = bootstrap.Modal.getInstance(
+        document.getElementById('alunoModal')
+    );
+    modal.hide();
+
+    // 5. Notificação de sucesso ao salvar
+    Swal.fire({
+        icon: 'success',
+        title: 'Aluno cadastrado!',
+        text: 'Aluno cadastrado com sucesso.',
+        confirmButtonColor: '#ee8fa2',
+        timer: 2500,
+        timerProgressBar: true
+    });
+});
+
+// 3. Troca do confirm() por Swal.fire() com botões Sim/Cancelar
+function excluirAluno(botao) {
+    Swal.fire({
+        title: 'Excluir aluno?',
+        text: 'Esta ação não pode ser desfeita.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Sim, excluir',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            botao.closest('tr').remove();
+            Swal.fire({
+                icon: 'success',
+                title: 'Excluído!',
+                text: 'O aluno foi removido.',
+                confirmButtonColor: '#ee8fa2',
+                timer: 1800,
+                timerProgressBar: true
+            });
+        }
+    });
+}
+
+// 4. Troca do prompt() por Swal.fire() com campos de input
+function editarAluno(botao) {
+    let linha = botao.closest('tr');
+    let nomeAtual = linha.cells[1].innerText;
+    let cursoAtual = linha.cells[2].innerText;
+
+    Swal.fire({
+        title: 'Editar Aluno',
+        html: `
+            <div class="mb-3 text-start">
+                <label class="form-label fw-semibold">Nome</label>
+                <input id="swal-nome" class="swal2-input" value="${nomeAtual}" placeholder="Nome do aluno">
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label fw-semibold">Curso</label>
+                <input id="swal-curso" class="swal2-input" value="${cursoAtual}" placeholder="Curso">
+            </div>
+        `,
+        showCancelButton: true,
+        confirmButtonColor: '#ee8fa2',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Salvar',
+        cancelButtonText: 'Cancelar',
+        preConfirm: () => {
+            const novoNome = document.getElementById('swal-nome').value.trim();
+            const novoCurso = document.getElementById('swal-curso').value.trim();
+
+            if (!novoNome || !novoCurso) {
+                Swal.showValidationMessage('Preencha todos os campos!');
+                return false;
+            }
+
+            return { nome: novoNome, curso: novoCurso };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            linha.cells[1].innerText = result.value.nome;
+            linha.cells[2].innerText = result.value.curso;
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Atualizado!',
+                text: 'Os dados do aluno foram salvos.',
+                confirmButtonColor: '#ee8fa2',
+                timer: 1800,
+                timerProgressBar: true
+            });
+        }
+    });
+}
+</script>
+
+</body>
+</html>
